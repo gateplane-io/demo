@@ -1,0 +1,80 @@
+ssh:
+  type: ssh
+  roles:
+    admin:
+      access:
+        static:
+          - userpass.demo-0
+        conditional:
+          description: Access all VMs
+          requestors:
+            - userpass.demo-1
+            - userpass.demo-2
+          approvers:
+            - userpass.demo-0
+
+kubernetes:
+  type: kubernetes
+  roles:
+    admin:
+      namespaces:
+        - kube-system
+        - default
+      access:
+        static:
+          - userpass.demo-0
+        conditional:
+          requestors:
+            - userpass.demo-1
+            - userpass.demo-2
+          approvers:
+            - userpass.demo-0
+
+pki/ca:
+  type: pki
+  roles:
+    user:
+      templated_common_name:
+        - email
+      access:
+        static:
+          - userpass.demo-0
+        conditional:
+          description: Generate x509 Certificate
+          required_approvals: 0
+          require_justification: true
+          requestors:
+            - userpass.demo-1
+            - userpass.demo-2
+          approvers:
+            - userpass.demo-0
+
+adhoc:
+  type: vault
+  roles:
+    cloud-access:
+      access:
+        static:
+          - userpass.demo-0
+        conditional:
+          description: Dev Access to all CSPs
+          required_approvals: 0
+          require_justification: true
+          requestors:
+            - userpass.demo-1
+            - userpass.demo-2
+          approvers:
+            - userpass.demo-0
+    secrets-reader:
+      access:
+        static:
+          - userpass.demo-0
+        conditional:
+          description: Read ALL Secrets
+          required_approvals: 2
+          require_justification: true
+          requestors:
+            - userpass.demo-1
+            - userpass.demo-2
+          approvers:
+            - userpass.demo-0

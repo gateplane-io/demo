@@ -42,6 +42,7 @@ module "setup" {
   // Omit or explicitly add all origins to allow CORS from GatePlane WebUI
   url_origins = [
     "https://${local.gateplane_webui_domain}",
+    "https://demo.${local.gateplane_webui_domain}",
     "https://${local.instance_hostport}",
   ]
 }
@@ -62,7 +63,7 @@ module "gateplane_services" {
   // The Vault/OpenBao Entity metadata field where the SlackID of each user resides
   # messenger_entity_metadata = ["slack_id"]
 
-  gateplane_webui_domain = local.gateplane_webui_domain
+  gateplane_webui_domain = "demo.${local.gateplane_webui_domain}"
 
   /*
   # You can explicitly set which users take up the license seats,

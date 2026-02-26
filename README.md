@@ -1,27 +1,71 @@
 # GatePlane Enterprise Demo
 
-The configuration of the public Demo GatePlane Enterprise instance.
+The configuration of the public **Demo GatePlane Enterprise** instance.
+
+<img src="https://raw.githubusercontent.com/gateplane-io/gateplane-io.github.io/main/assets/logo-trans-light.svg#gh-dark-mode-only" alt="logo-darkmode" width="45%" align="right">
+<img src="https://raw.githubusercontent.com/gateplane-io/gateplane-io.github.io/main/assets/logo-trans-dark.svg#gh-light-mode-only" alt="logo-lightmode" width="45%" align="right">
 
 ---
 
-## Usage
+## 📖 Usage
 
-This instance is created to showcase the WebUI under [`https://demo.app.gateplane.io`](https://demo.app.gateplane.io),
-which uses the public Vault instance under [`https://vault.demo.gateplane.io`](https://vault.demo.gateplane.io)
+This demo instance is designed to showcase the **GatePlane WebUI** in action:
 
-Additionally, the Gates are configured through RBAC using [`vault-yaml`](https://github.com/gateplane-io/vault-yaml)
-Terraform modules, and are defined under [`accesses.yaml`](https://github.com/gateplane-io/vault.demo.gateplane.io/blob/main//accesses.yaml)
+- 🔗 **WebUI**: [`https://demo.app.gateplane.io`](https://demo.app.gateplane.io)
+- 🔐 **Public Vault Instance**: [`https://vault.demo.gateplane.io`](https://vault.demo.gateplane.io)
 
-## Users
+### ⚙️ Configuration Details
 
-This instance contains the following users, accessible through [`auth/userpass`](https://vault.demo.gateplane.io/ui/vault/auth?with=userpass):
+The Gates are configured using the powerful [`vault-yaml`](https://github.com/gateplane-io/vault-yaml) Terraform modules. All access policies are defined in [`accesses.yaml`](https://github.com/gateplane-io/vault.demo.gateplane.io/blob/main//accesses.yaml).
 
-Username: `demo-{0,1,2}`
+---
 
-Password: `passwd`
+## 👥 Demo Users
 
-## Notifications
+Explore the system with these pre-configured demo accounts. Access them through [`auth/userpass`](https://vault.demo.gateplane.io/ui/vault/auth?with=userpass):
 
-The *GatePlane Enterprise* instance is set up to work with the public [`ntfy.sh`](https://ntfy.sh) instance.
+| Username | Password | Access Level |
+|----------|----------|--------------|
+| `demo-0` | `passwd` | Approver |
+| `demo-1` | `passwd` | Requestor |
+| `demo-2` | `passwd` | Requestor |
 
-Using the [Demo Instance](https://demo.app.gateplane.io) will send notifications to the publicly accessible [`https://ntfy.sh/gateplane-demo`](https://ntfy.sh/gateplane-demo) feed.
+> 💡 **Tip**: Try logging in with different users to see how RBAC policies control access!
+
+---
+
+## 🔔 Notifications
+
+The *GatePlane Enterprise* instance is integrated with the public [`ntfy.sh`](https://ntfy.sh) notification service.
+
+- **Live Notification Feed**: [`https://ntfy.sh/gateplane-demo`](https://ntfy.sh/gateplane-demo)
+
+When you interact with the [Demo Instance](https://demo.app.gateplane.io), all events and notifications are pushed to this publicly accessible feed in real-time.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Vault** - Secure secrets storage
+- **Terraform** - Infrastructure as Code
+- **vault-yaml** - YAML-based Vault configuration
+- **ntfy.sh** - Real-time notifications
+
+---
+
+## 📚 Resources
+
+- 🌐 [GatePlane Website](https://gateplane.io)
+- 🌐 [GatePlane WebUI](https://app.gateplane.io)
+- 💻 [`vault-yaml` Repository](https://github.com/gateplane-io/vault-yaml)
+- 🐛 [Report Issues](https://github.com/gateplane-io/demo/issues)
+
+---
+
+<div align="center">
+
+**Made with ❤️ by the GatePlane Team**
+
+[⬆ Back to Top](#-gateplane-enterprise-demo)
+
+</div>
